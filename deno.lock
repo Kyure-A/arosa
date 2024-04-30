@@ -1,5 +1,16 @@
 {
   "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:@microsoft/microsoft-graph-types": "npm:@microsoft/microsoft-graph-types@2.40.0"
+    },
+    "npm": {
+      "@microsoft/microsoft-graph-types@2.40.0": {
+        "integrity": "sha512-1fcPVrB/NkbNcGNfCy+Cgnvwxt6/sbIEEFgZHFBJ670zYLegENYJF8qMo7x3LqBjWX2/Eneq5BVVRCLTmlJN+g==",
+        "dependencies": {}
+      }
+    }
+  },
   "redirects": {
     "https://deno.land/std/path/mod.ts": "https://deno.land/std@0.219.1/path/mod.ts",
     "https://deno.land/std/uuid/mod.ts": "https://deno.land/std@0.219.1/uuid/mod.ts"
