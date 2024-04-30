@@ -5,4 +5,7 @@ dotenv.loadSync({
   export: true
 })
 
-export const discord_token = Deno.env.get("DISCORD_TOKEN");
+export const env = {
+  discord_token: Deno.env.get("DISCORD_TOKEN") ?? "",
+  guild_id: Deno.env.get("GUILD_ID") ?? "",
+}
