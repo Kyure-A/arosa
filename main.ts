@@ -1,4 +1,5 @@
 import { createBot, Intents, startBot } from "./deps.ts";
+import { listCommand } from "./utils/commands.ts";
 import { env } from "./utils/env.ts";
 
 const bot = createBot({
@@ -11,4 +12,7 @@ const bot = createBot({
   },
 })
 
+await bot.helpers.upsertGuildApplicationCommands(env.guild_id, [
+  listCommand
+])
 await startBot(bot);
