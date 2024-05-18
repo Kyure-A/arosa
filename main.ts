@@ -18,11 +18,13 @@ const bot = createBot({
     },
     async interactionCreate(client, interaction) {
       if (interaction.data?.name === "list") {
-        return await client.helpers.sendInteractionResponse(
-          interaction.id,
+        await client.helpers.sendMessage(interaction.id, {
+          content: "wait...",
+        });
+        return await client.helpers.sendFollowupMessage(
           interaction.token,
           {
-            type: InteractionResponseTypes.ChannelMessageWithSource,
+            type: InteractionResponseTypes.DeferredUpdateMessage,
             data: {
               embeds: [transformEmbed(bot, {
                 title: "Assignments",
