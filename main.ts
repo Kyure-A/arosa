@@ -18,9 +18,16 @@ const bot = createBot({
     },
     async interactionCreate(client, interaction) {
       if (interaction.data?.name === "list") {
-        await client.helpers.sendMessage(interaction.id, {
-          content: "wait...",
-        });
+        const first = await client.helpers.sendInteractionResponse(
+          interaction.id,
+          interaction.token,
+          {
+            type: InteractionResponseTypes.ChannelMessageWithSource,
+            data: {
+              content: "loading...",
+            },
+          },
+        );
         return await client.helpers.sendFollowupMessage(
           interaction.token,
           {
