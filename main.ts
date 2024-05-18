@@ -17,7 +17,7 @@ const bot = createBot({
       console.log(`${payload.user.username} is ready!`);
     },
     async interactionCreate(client, interaction) {
-      if (interaction.data?.name === "ping") {
+      if (interaction.data?.name === "list") {
         return await client.helpers.sendInteractionResponse(
           interaction.id,
           interaction.token,
