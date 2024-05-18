@@ -32,6 +32,19 @@ const bot = createBot({
           },
         );
       }
+
+      if (interaction.data?.name === "ping") {
+        return await client.helpers.sendInteractionResponse(
+          interaction.id,
+          interaction.token,
+          {
+            type: InteractionResponseTypes.ChannelMessageWithSource,
+            data: {
+              content: "pong!",
+            },
+          },
+        );
+      }
     },
   },
 });
