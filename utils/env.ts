@@ -1,9 +1,11 @@
 import { dotenv } from "../deps.ts";
 
-dotenv.loadSync({
-  envPath: "~/.env",
-  export: true,
-});
+try {
+  dotenv.loadSync({
+    envPath: "~/.env",
+    export: true,
+  });
+} catch {}
 
 export const env = {
   classroom_url: Deno.env.get("CLASSROOM_URL") ?? "",
