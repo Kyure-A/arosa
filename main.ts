@@ -18,7 +18,7 @@ const bot = createBot({
     },
     async interactionCreate(client, interaction) {
       if (interaction.data?.name === "list") {
-        const first = await client.helpers.sendInteractionResponse(
+        await client.helpers.sendInteractionResponse(
           interaction.id,
           interaction.token,
           {
