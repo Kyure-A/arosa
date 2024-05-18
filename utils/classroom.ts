@@ -7,8 +7,9 @@ type ClassroomResponse =
   | { status: "ok"; value: Array<Assignment> };
 
 const urlQueryBuilder = (url: string, date: Date) => {
-  return url + "?year=" + date.getFullYear() + "&month=" + date.getMonth() +
-    "&day=" + date.getDate();
+  return url + "?year=" + date.getFullYear().toString() + "&month=" +
+    (date.getMonth() + 1).toString() +
+    "&day=" + date.getDate().toString();
 };
 
 export class Classroom implements ArosaBase {
@@ -27,7 +28,8 @@ export class Classroom implements ArosaBase {
 
     return this.assignments.map((x): DiscordEmbedField => {
       return {
-        name: x.name + "(" + "期限: " + x.dueDate?.year + "/" + x.dueDate?.month + "/" + x.dueDate?.day + ")",
+        name: x.name + "(" + "期限: " + x.dueDate?.year + "/" +
+          x.dueDate?.month + "/" + x.dueDate?.day + ")",
         value: "[" + (x.description || "説明なし") + "](" + x.link + ")",
         inline: false,
       };
