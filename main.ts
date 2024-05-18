@@ -6,7 +6,7 @@ import {
   transformEmbed,
 } from "./deps.ts";
 import { Classroom } from "./utils/classroom.ts";
-import { listCommand } from "./utils/commands.ts";
+import { listCommand, pingCommand } from "./utils/commands.ts";
 import { env } from "./utils/env.ts";
 
 const bot = createBot({
@@ -51,6 +51,7 @@ const bot = createBot({
 
 await bot.helpers.upsertGuildApplicationCommands(env.guild_id, [
   listCommand,
+  pingCommand,
 ]);
 
 await startBot(bot);
