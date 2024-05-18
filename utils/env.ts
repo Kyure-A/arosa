@@ -5,7 +5,9 @@ try {
     envPath: "~/.env",
     export: true,
   });
-} catch {}
+} catch {
+  // nop
+}
 
 export const env = {
   classroom_url: Deno.env.get("CLASSROOM_URL") ?? "",
