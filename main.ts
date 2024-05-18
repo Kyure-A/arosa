@@ -26,9 +26,9 @@ const bot = createBot({
             data: {
               embeds: [transformEmbed(bot, {
                 title: "Assignments",
-                fields: (() => {
+                fields: await (async () => {
                   const c = new Classroom();
-                  c.getAssignments(new Date());
+                  await c.getAssignments(new Date());
                   return c.exportAsFields();
                 })(),
               })],
