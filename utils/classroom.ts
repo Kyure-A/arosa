@@ -22,7 +22,7 @@ export class Classroom implements ArosaBase {
     return value;
   }
 
-  async exportAsFields(): Promise<Array<DiscordEmbedField> | undefined> {
+  exportAsFields(): Array<DiscordEmbedField> | undefined {
     if (this.assignments === undefined) return undefined;
 
     return this.assignments.map((x): DiscordEmbedField => {

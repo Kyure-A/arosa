@@ -14,5 +14,5 @@ export type Assignment = {
 export interface ArosaBase {
   assignments: Array<Assignment> | undefined;
   getAssignments(date: Date): Promise<Array<Assignment> | undefined>;
-  exportAsFields(): Promise<Array<DiscordEmbedField> | undefined>;
+  exportAsFields(): Array<DiscordEmbedField> | undefined;
 }

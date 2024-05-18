@@ -26,7 +26,11 @@ const bot = createBot({
             data: {
               embeds: [transformEmbed(bot, {
                 title: "Assignments",
-                fields: (await new Classroom().exportAsFields()),
+                fields: (() => {
+                  const c = new Classroom();
+                  c.getAssignments(new Date());
+                  return c.exportAsFields();
+                })(),
               })],
             },
           },
