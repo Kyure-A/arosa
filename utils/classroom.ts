@@ -28,7 +28,7 @@ export class Classroom implements ArosaBase {
     return this.assignments.map((x): DiscordEmbedField => {
       return {
         name: x.name + "(" + "期限: " + x.dueDate?.year + "/" + x.dueDate?.month + "/" + x.dueDate?.day + ")",
-        value: "[" + x.description ?? "説明なし" + "](" + x.link + ")",
+        value: "[" + x.description === "" ? "説明なし" : x.description + "](" + x.link + ")",
         inline: false,
       };
     });
