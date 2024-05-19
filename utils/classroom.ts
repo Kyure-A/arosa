@@ -1,7 +1,11 @@
 import { DiscordEmbedField } from "../deps.ts";
 import { ArosaBase, Assignment } from "./base.ts";
 import { env } from "./env.ts";
-import { markdownLinkBuilder, urlQueryBuilder } from "./util.ts";
+import {
+  dueDateStringBuilder,
+  markdownLinkBuilder,
+  urlQueryBuilder,
+} from "./util.ts";
 
 type ClassroomResponse =
   | { status: "error"; value: undefined }
@@ -23,8 +27,7 @@ export class Classroom implements ArosaBase {
 
     return this.assignments.map((x): DiscordEmbedField => {
       return {
-        name: x.name + "(" + "期限: " + x.dueDate?.year + "/" +
-          x.dueDate?.month + "/" + x.dueDate?.day + ")",
+        name: x.name + dueDateStringBuilder(x),
         value: markdownLinkBuilder(x.description, x.link),
         inline: false,
       };
